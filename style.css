@@ -66,3 +66,17 @@
 .linkfotor{
     color: green;   
 }
+
+.types{
+    color: green;
+    margin: 20px;
+}
+
+.typesheading{
+    color: #45a049;
+}
+
+.hreftag{
+    color: blue;
+    font-weight: bold;
+}

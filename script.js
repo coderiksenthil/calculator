@@ -80,3 +80,28 @@ function operate(num1, num2, operator) {
       return '';
   }
 }
+
+function calculateBMI() {
+  var height = parseFloat(document.getElementById("height").value);
+  var weight = parseFloat(document.getElementById("weight").value);
+
+  if (isNaN(height) || isNaN(weight) || height <= 0 || weight <= 0) {
+      alert("Please enter valid height and weight values.");
+      return;
+  }
+
+  var bmi = weight / ((height / 100) * (height / 100));
+  var resultElement = document.getElementById("result");
+
+  resultElement.innerHTML = "Your BMI is: " + bmi.toFixed(2);
+
+  if (bmi < 18.5) {
+      resultElement.innerHTML += "<br>Underweight";
+  } else if (bmi < 25) {
+      resultElement.innerHTML += "<br>Normal weight";
+  } else if (bmi < 30) {
+      resultElement.innerHTML += "<br>Overweight";
+  } else {
+      resultElement.innerHTML += "<br>Obese";
+  }
+}

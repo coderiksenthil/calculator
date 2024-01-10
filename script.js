@@ -105,3 +105,104 @@ function calculateBMI() {
       resultElement.innerHTML += "<br>Obese";
   }
 }
+
+function addSubjects() {
+  const subjectsContainer = document.getElementById('subjectsContainer');
+  const numSubjects = document.getElementById('numSubjects').value;
+
+  subjectsContainer.innerHTML = '';
+
+  const table = document.createElement('table');
+  table.innerHTML = `
+      <tr>
+          <th>Course No.</th>
+          <th>Credits</th>
+          <th>Grade</th>
+          <th>Grade Points</th>
+          <th>Credit Points</th>
+      </tr>
+  `;
+
+  for (let i = 1; i <= numSubjects; i++) {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+          <td><input type="text" id="courseNo${i}" required></td>
+          <td><input type="number" id="credits${i}" min="1" required></td>
+          <td><input type="text" id="grade${i}" required></td>
+          <td id="gradePoints${i}"></td>
+          <td id="creditPoints${i}"></td>
+      `;
+      table.appendChild(tr);
+  }
+
+  subjectsContainer.appendChild(table);
+}
+
+function calculateSGPA() {
+  const numSubjects = document.getElementById('numSubjects').value;
+  let totalCreditPoints = 0;
+  let totalCredits = 0;
+
+  for (let i = 1; i <= numSubjects; i++) {
+      const credits = parseInt(document.getElementById(`credits${i}`).value);
+      const grade = document.getElementById(`grade${i}`).value.toUpperCase();
+      let gradePoints = 0;
+
+      switch (grade) {
+          case 'A':
+              gradePoints = 9;
+              break;
+          case 'B':
+              gradePoints = 8;
+              break;
+          case 'C':
+              gradePoints = 7;
+              break;
+          case 'D':
+              gradePoints = 6;
+              break;
+          case 'E':
+              gradePoints = 5;
+              break;
+          case 'F':
+              gradePoints = 0;
+              break;
+          default:
+              gradePoints = 0;
+              break;
+      }
+
+      const creditPoints = credits * gradePoints;
+
+      totalCreditPoints += creditPoints;
+      totalCredits += credits;
+
+      document.getElementById(`gradePoints${i}`).textContent = gradePoints.toFixed(2);
+      document.getElementById(`creditPoints${i}`).textContent = creditPoints.toFixed(2);
+  }
+
+  const resultDiv = document.getElementById('result');
+  resultDiv.innerHTML = `<p>Total Credits for Semester: ${totalCredits}</p>`;
+  resultDiv.innerHTML += `<p>Total Credit Points: ${totalCreditPoints}</p>`;
+  resultDiv.innerHTML += `<p>Your SGPA is: ${(totalCreditPoints / totalCredits).toFixed(2)}</p>`;
+}
+
+function downloadPDF() {
+  const element = document.getElementById('result');
+
+  // Open a new window for printing
+  const printWindow = window.open('', '_blank');
+
+  // Write the HTML content to the new window
+  printWindow.document.write('<html><head><title>SGPA Result</title></head><body>');
+  printWindow.document.write('<style>@media print{body{visibility:hidden;}.print-section{visibility:visible;}}</style>');
+  printWindow.document.write('<div class="print-section">' + element.innerHTML + '</div>');
+  printWindow.document.write('</body></html>');
+
+  // Trigger the print dialog
+  printWindow.print();
+  printWindow.onafterprint = function () {
+      // Close the window after printing
+      printWindow.close();
+  };
+}

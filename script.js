@@ -206,3 +206,50 @@ function downloadPDF() {
       printWindow.close();
   };
 }
+
+async function calculateDistance() {
+  const place1 = document.getElementById('place1').value;
+  const place2 = document.getElementById('place2').value;
+
+  if (!place1 || !place2) {
+    alert("Please enter both place names");
+    return;
+  }
+
+  try {
+    const [coord1, coord2] = await Promise.all([getCoordinates(place1), getCoordinates(place2)]);
+    const distance = calculateHaversineDistance(coord1, coord2);
+
+    document.getElementById('result').innerHTML = `Distance: ${distance.toFixed(2)} km`;
+  } catch (error) {
+    alert("Error getting coordinates. Please check your place names.");
+  }
+}
+
+async function getCoordinates(place) {
+  const apiKey = 'YOUR_OPENCAGE_API_KEY';
+  const response = await fetch(`https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(place)}&key=${apiKey}`);
+  const data = await response.json();
+
+  if (data.results && data.results.length > 0) {
+    const { lat, lng } = data.results[0].geometry;
+    return { lat, lng };
+  } else {
+    throw new Error("No coordinates found for the specified place.");
+  }
+}
+
+function calculateHaversineDistance(coord1, coord2) {
+  const R = 6371; // Earth's radius in kilometers
+
+  const dLat = (coord2.lat - coord1.lat) * (Math.PI / 180);
+  const dLon = (coord2.lng - coord1.lng) * (Math.PI / 180);
+
+  const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(coord1.lat * (Math.PI / 180)) * Math.cos(coord2.lat * (Math.PI / 180)) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+  return R * c;
+}

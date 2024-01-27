@@ -1,83 +1,116 @@
-*{
-    padding: 0%;
-    margin: 0%;
-}
-.heading{
-    background-color: lightblue;
+* {
+    padding: 0;
     margin: 0;
-    padding: 0px;
-    overflow: hidden;
-}
-.headline{
-    text-align: center ;
+    box-sizing: border-box;
 }
 
-.marquee{
-    background-color:orange;
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+}
+
+.heading {
+    background-color: #3498db;
+    overflow: hidden;
+    color: #fff;
+}
+
+.headline {
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+}
+
+.marquee {
+    background-color: #e67e22;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
 }
 
 .calculator {
     text-align: center;
     width: 500px;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
-    background-color: #f2f2f2;
+    background-color: #ecf0f1;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 #display {
     background-color: #fff;
     border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    border-radius: 5px;
 }
 
-.buttons button { 
-    width: 100px;
+.buttons button,
+.numpad button {
+    width: 80px;
     height: 40px;
     margin: 5px;
-    font-size: 20px;
-    background-color: #4caf50;
-    color: white;
+    font-size: 18px;
+    color: #fff;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.buttons button {
+    background-color: #2ecc71;
 }
 
 .buttons button:hover {
-    background-color: #45a049;
+    background-color: #27ae60;
 }
+
 .numpad button {
-    width: 100px;
-    height: 40px;
-    margin: 5px;
-    font-size: 20px;
-    background-color: #337ab7;
-    color: white;
-    border: none;
-    cursor: pointer;
+    background-color: #3498db;
 }
 
 .numpad button:hover {
-    background-color: #2e6da4;
+    background-color: #2980b9;
 }
-.pagebottom{
+
+.pagebottom {
     text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
 }
 
-.linkfotor{
-    color: green;   
+.linkfotor {
+    color: #27ae60;
+    text-decoration: none;
 }
 
-.types{
-    color: green;
+.linkfotor:hover {
+    text-decoration: underline;
+}
+
+.types {
+    color: #2ecc71;
     margin: 20px;
 }
 
-.typesheading{
-    color: #45a049;
+.typesheading {
+    color: #3498db;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
-.hreftag{
-    color: blue;
+.hreftag {
+    color: #2980b9;
     font-weight: bold;
+    text-decoration: none;
 }
 
+.hreftag:hover {
+    text-decoration: underline;
+}
+/* responsive */

@@ -1,0 +1,165 @@
+/*body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-top: 10px;
+}
+
+button {
+    margin-top: 10px;
+}*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #3498db;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#subjectsContainer {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    #result {
+        font-size: 16px;
+    }
+
+    a {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    #result {
+        font-size: 16px;
+    }
+
+    a {
+        font-size: 14px;
+    }
+}
+

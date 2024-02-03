@@ -23,7 +23,7 @@
         <label for="numbers">Enter numbers (comma-separated):</label>
         <input type="text" id="numbers" placeholder="e.g., 1, 2, 3, 4, 5">
         <button onclick="calculate()">Calculate</button>
-
+        <button id="clearButton" onclick="clearInput()">Clear Input</button>
         <h3>Results:</h3>
         <p>Mean: <span id="meanResult"></span></p>
         <p>Median: <span id="medianResult"></span></p>
@@ -48,6 +48,7 @@
                 ? (sortedNumbers[middleIndex - 1] + sortedNumbers[middleIndex]) / 2
                 : sortedNumbers[middleIndex];
             document.getElementById('medianResult').innerText = median.toFixed(2);
+            document.getElementById('numbers').value = '';
 
             // Calculate mode
             var counts = {};
@@ -57,6 +58,13 @@
             var modeValues = Object.keys(counts).filter(key => counts[key] === Math.max(...Object.values(counts)));
             var mode = modeValues.join(', ');
             document.getElementById('modeResult').innerText = mode;
+        }
+        function clearInput() {
+            // Clear the input field and result spans
+            document.getElementById('numbers').value = '';
+            document.getElementById('meanResult').innerText = '';
+            document.getElementById('medianResult').innerText = '';
+            document.getElementById('modeResult').innerText = '';
         }
     </script>
 </body>

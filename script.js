@@ -253,3 +253,21 @@ function calculateHaversineDistance(coord1, coord2) {
 
   return R * c;
 }
+function appendToDisplay(value) {
+  document.getElementById('display').value += value;
+}
+
+function calculate() {
+  try {
+      var input = document.getElementById('display').value;
+      var result = eval(input.replace('sin', 'Math.sin').replace('cos', 'Math.cos').replace('tan', 'Math.tan').replace('^', '**').replace('sqrt', 'Math.sqrt'));
+      document.getElementById('display').value = result;
+  } catch (error) {
+      document.getElementById('display').value = 'Error';
+  }
+}
+
+function clearDisplay() {
+  document.getElementById('display').value = '';
+}
+

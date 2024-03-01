@@ -271,3 +271,20 @@ function clearDisplay() {
   document.getElementById('display').value = '';
 }
 
+function convertTemp() {
+  let fahrenheit = document.getElementById('fahrenheit').value;
+  let celsius = (fahrenheit - 32) * 5 / 9;
+  let kelvin = celsius + 273.15;
+
+  if (!isNaN(celsius)) {
+      document.getElementById('celsius').textContent = `Celsius: ${celsius.toFixed(2)}°C`;
+  } else {
+      document.getElementById('celsius').textContent = 'Celsius: Invalid input';
+  }
+
+  if (!isNaN(kelvin)) {
+      document.getElementById('kelvin').textContent = `Kelvin: ${kelvin.toFixed(2)}K`;
+  } else {
+      document.getElementById('kelvin').textContent = 'Kelvin: Invalid input';
+  }
+}

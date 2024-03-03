@@ -6,10 +6,19 @@ This is a Calculator which I have made using HTML, CSS, and JavaScript. This has
 link:- https://coderiksenthil.github.io/calculator/
 Netlify Link:- https://calculatoropensource.netlify.app/
 
-Upcoming Updates
-   - Home Screen
-   - Authentication using Firebase
-   - Calculator using ChatGPT API
-   - Many More
-   - Anyone who has more ideas can help us improve this project by only using HTML, CSS,JS
-   - Will update soon 
+## Upcoming Updates
+- Home Screen
+- Authentication using Firebase
+- Calculator using ChatGPT API
+- Many More
+- Anyone who has more ideas can help us improve this project by only using HTML, CSS,JS
+- Will update soon 
+
+## Structure of website 
+- html folder has all html file 
+- css folder has all css file 
+- for js just us script.js file which is below index.html page
+- if you have any images you can keep in images folder 
+- you can also update readme if you have any feature ideas 
+- This calculator project is only for begineers who want to learn html css js by doing a project
+- Thanks for reading

@@ -288,3 +288,59 @@ function convertTemp() {
       document.getElementById('kelvin').textContent = 'Kelvin: Invalid input';
   }
 }
+function parseMatrix(matrixStr) {
+  return matrixStr.trim().split('\n').map(row => row.trim().split(/\s+/).map(Number));
+}
+
+function formatMatrix(matrix) {
+  return matrix.map(row => row.join('\t')).join('\n');
+}
+
+function addMatrices() {
+  let matrix1 = parseMatrix(document.getElementById('matrix1').value);
+  let matrix2 = parseMatrix(document.getElementById('matrix2').value);
+  
+  if (matrix1.length !== matrix2.length || matrix1[0].length !== matrix2[0].length) {
+      alert('Matrices must have the same dimensions.');
+      return;
+  }
+
+  let result = matrix1.map((row, i) => row.map((val, j) => val + matrix2[i][j]));
+  document.getElementById('result').value = formatMatrix(result);
+}
+
+function subtractMatrices() {
+  let matrix1 = parseMatrix(document.getElementById('matrix1').value);
+  let matrix2 = parseMatrix(document.getElementById('matrix2').value);
+  
+  if (matrix1.length !== matrix2.length || matrix1[0].length !== matrix2[0].length) {
+      alert('Matrices must have the same dimensions.');
+      return;
+  }
+
+  let result = matrix1.map((row, i) => row.map((val, j) => val - matrix2[i][j]));
+  document.getElementById('result').value = formatMatrix(result);
+}
+
+function multiplyMatrices() {
+  let matrix1 = parseMatrix(document.getElementById('matrix1').value);
+  let matrix2 = parseMatrix(document.getElementById('matrix2').value);
+  
+  if (matrix1[0].length !== matrix2.length) {
+      alert('Number of columns in Matrix 1 must equal the number of rows in Matrix 2.');
+      return;
+  }
+
+  let result = [];
+  for (let i = 0; i < matrix1.length; i++) {
+      result[i] = [];
+      for (let j = 0; j < matrix2[0].length; j++) {
+          let sum = 0;
+          for (let k = 0; k < matrix2.length; k++) {
+              sum += matrix1[i][k] * matrix2[k][j];
+          }
+          result[i][j] = sum;
+      }
+  }
+  document.getElementById('result').value = formatMatrix(result);
+}

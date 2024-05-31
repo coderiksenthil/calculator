@@ -344,3 +344,46 @@ function multiplyMatrices() {
   }
   document.getElementById('result').value = formatMatrix(result);
 }
+// Currency Converter Code
+function convertCurrency() {
+  const amount = parseFloat(document.getElementById('amount').value);
+  const fromCurrency = document.getElementById('fromCurrency').value;
+  const toCurrency = document.getElementById('toCurrency').value;
+  const resultElement = document.getElementById('conversionResult');
+
+  // Clear previous result
+  resultElement.textContent = '';
+
+  if (!amount || isNaN(amount) || amount <= 0) {
+      alert("Please enter a valid amount.");
+      return;
+  }
+
+  try {
+      const convertedAmount = getConvertedAmount(amount, fromCurrency, toCurrency);
+      resultElement.textContent = `Converted Amount: ${convertedAmount.toFixed(2)} ${toCurrency}`;
+  } catch (error) {
+      alert("Error in conversion. Please try again later.");
+      console.error(error);
+  }
+}
+
+function getConvertedAmount(amount, fromCurrency, toCurrency) {
+  // Predefined exchange rates
+  const exchangeRates = {
+      USD: { EUR: 0.84, GBP: 0.74, INR: 73.58 },
+      EUR: { USD: 1.19, GBP: 0.88, INR: 87.69 },
+      GBP: { USD: 1.35, EUR: 1.14, INR: 99.70 },
+      INR: { USD: 0.014, EUR: 0.011, GBP: 0.01 }
+  };
+
+  if (exchangeRates[fromCurrency] && exchangeRates[fromCurrency][toCurrency]) {
+      const rate = exchangeRates[fromCurrency][toCurrency];
+      return amount * rate;
+  } else {
+      throw new Error("Invalid currency or conversion not supported.");
+  }
+}
+
+
+

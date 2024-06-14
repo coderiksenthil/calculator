@@ -114,3 +114,30 @@ body {
     text-decoration: underline;
 }
 /* responsive */
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#itemList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#itemList li {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#itemList li:last-child {
+    border-bottom: none;
+}

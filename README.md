@@ -22,3 +22,5 @@ Netlify Link:- https://calculatoropensource.netlify.app/
 - you can also update readme if you have any feature ideas 
 - This calculator project is only for begineers who want to learn html css js by doing a project
 - Thanks for reading
+
+<a href="https://www.buymeacoffee.com/usenthilkumar" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
